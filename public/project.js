@@ -92,13 +92,15 @@ function showLoading(show) {
 function showResults(show) {
   const inputContainer = document.getElementById("inputContainer");
   const highscoreContainer = document.getElementById("highscoreContainer");
-
+  const catfactContainer = document.getElementById("catfactContainer");
   if (show) {
     inputContainer.style.display = "none";
     highscoreContainer.style.display = "block";
+    catfactContainer.style.display = "block";
   } else {
     inputContainer.style.display = "block";
     highscoreContainer.style.display = "none";
+    catfactContainer.style.display = "none";
   }
 }
 
@@ -124,6 +126,38 @@ function handleSearch() {
   }
 
   fetchHiscore(playerName);
+  fetchCatFact();
+}
+
+function fetchCatFact() {
+  showLoading(true);
+  fetch(`${API_URL}/catfacts`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+      showLoading(false);
+
+      const catFactText = document.querySelector(".catFactText");
+      if (catFactText && data) {
+        catFactText.innerHTML = `<h3>Cat Fact:</h3> ${
+          data.fact || data.text || data
+        }`;
+      }
+    })
+    .catch((error) => {
+      console.error("Error fetching cat fact:", error);
+      showLoading(false);
+
+      const catfactContainer = document.getElementById("catfactContainer");
+      if (catfactContainer) {
+        catfactContainer.innerHTML = `<p>Failed to load cat fact: ${error.message}</p>`;
+      }
+    });
 }
 
 function resetSearch() {
@@ -150,4 +184,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   playerNameInput.focus();
+});
+
+const button = document.getElementById("moreCatFact");
+button.addEventListener("click", async () => {
+  fetchCatFact();
 });

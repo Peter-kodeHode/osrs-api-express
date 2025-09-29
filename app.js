@@ -32,6 +32,19 @@ app.get("/hiscores", async (req, res) => {
   }
 });
 
+app.get("/catfacts", async (req, res) => {
+  try {
+    const catUrl = `https://catfact.ninja/fact`;
+
+    const response = await fetch(catUrl);
+    const catData = await response.json();
+    res.json(catData);
+  } catch (error) {
+    console.error("Error fetching cat fact:", error);
+    res.status(500).json({ error: "Failed to fetch cat fact" });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
 });
