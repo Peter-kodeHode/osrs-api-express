@@ -40,9 +40,10 @@ h1 {
 h3 {
   margin: 0.5em;
   font-size: 1.5em;
-  color: black;
-  text-shadow: grey 2px 2px 2px;
+  color: white;
+  background: black;
   font-weight: bold;
+  border-radius: 50px;
 }
 
 #searchButton,
