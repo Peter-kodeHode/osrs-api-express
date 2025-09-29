@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS STATS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <div id="inputContainer">
+        <h1>Look up your OSRS stats</h1>
+        <div id="searchForm">
+            <input type="text" id="playerNameInput" placeholder="Enter player name..." maxlength="12">
+            <button id="searchButton">Get Stats</button>
+        </div>
+        <div id="loadingMessage" style="display: none;">Loading...</div>
+    </div>
+
+    <div id="highscoreContainer" style="display: none;">
+        <p class="highscoreText"></p>
+        <button id="searchAgainButton">Search Another Player</button>
+    </div>
+
+</body>
+<script src="project.js"></script>
+
+</html>
