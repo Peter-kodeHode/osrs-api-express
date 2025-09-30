@@ -13,21 +13,26 @@
 
     <div id="inputContainer">
         <h1>Look up your OSRS stats</h1>
+
         <div id="searchForm">
             <input type="text" id="playerNameInput" placeholder="Enter player name..." maxlength="12">
             <button id="searchButton">Get Stats</button>
         </div>
+        <div id="errorMessage" style="display: none;"></div>
         <div id="loadingMessage" style="display: none;">Loading...</div>
     </div>
 
     <div id="highscoreContainer" style="display: none;">
         <p class="highscoreText"></p>
-        <button id="searchAgainButton">Search Another Player</button>
     </div>
 
     <div id="catfactContainer" style="display:none;">
         <p class="catFactText"></p>
+        <button id="searchAgainButton">Search Another Player</button>
         <button id="moreCatFact">ANOTHER CATFACT!!</button>
+
+
+
     </div>
 
 </body>

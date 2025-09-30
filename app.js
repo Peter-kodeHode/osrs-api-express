@@ -24,11 +24,21 @@ app.get("/hiscores", async (req, res) => {
     const osrsUrl = `https://secure.runescape.com/m=hiscore_oldschool/index_lite.json?player=${playerName}`;
 
     const response = await fetch(osrsUrl);
+
+    // If OSRS API returns 404, the player doesn't exist
+    if (response.status === 404) {
+      return res.status(404).json({ error: "Player not found" });
+    }
+
+    if (!response.ok) {
+      throw new Error(`OSRS API returned status: ${response.status}`);
+    }
+
     const hiscoreData = await response.json();
     res.json(hiscoreData);
   } catch (error) {
     console.error("Error fetching hiscore data", error);
-    res.status(500).send("Could not get hiscore data");
+    res.status(500).json({ error: "Could not get hiscore data" });
   }
 });
 
