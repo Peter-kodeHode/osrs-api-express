@@ -39,7 +39,7 @@ body {
   background-color: var(--osrs-background);
 }
 
-#mainContainer {
+.main-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -48,7 +48,7 @@ body {
   padding-top: 3em;
 }
 
-#navbar {
+.navbar {
   width: 100%;
   background-color: var(--osrs-panel);
   color: var(--osrs-gold);
@@ -63,7 +63,7 @@ body {
   list-style-type: none;
 }
 
-#navbar ul {
+.navbar ul {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -92,7 +92,7 @@ a:active {
   color: var(--osrs-yellow);
 }
 
-#errorMessage {
+.error-message {
   color: var(--osrs-red);
   font-weight: bold;
   margin: 0.5em;
@@ -100,7 +100,7 @@ a:active {
   text-shadow: black 2px 2px 2px;
 }
 
-#inputContainer {
+.input-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -119,22 +119,22 @@ h1 {
   padding: 0.5em;
 }
 
-#searchForm {
+.search-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-#highscoreContainer,
-#catfactContainer {
+.highscore-container,
+.catfact-container {
   max-width: 50%;
   min-width: 50%;
 }
 
 .hiscoreText,
-#loadingMessage,
-.catFactText {
+.loading-message,
+.cat-fact-text {
   font-weight: bold;
   font-size: 1em;
   color: var(--osrs-yellow);
@@ -157,9 +157,9 @@ h3 {
   text-align: center;
 }
 
-#searchButton,
-#searchAgainButton,
-#moreCatFact {
+.search-button,
+.search-again-button,
+.more-cat-fact {
   margin: 1em;
   padding: 0.5em;
   cursor: pointer;
@@ -174,15 +174,15 @@ h3 {
   flex-direction: row;
 }
 
-#searchButton:hover,
-#searchAgainButton:hover,
-#moreCatFact:hover {
+.search-button:hover,
+.search-again-button:hover,
+.more-cat-fact:hover {
   background-color: var(--osrs-yellow);
   color: var(--osrs-black);
   text-shadow: none;
 }
 
-#playerNameInput {
+.player-name-input {
   padding: 1em;
   text-align: center;
   box-shadow: var(--osrs-black) 2px 2px 2px 2px;
@@ -194,13 +194,13 @@ h3 {
   width: 65vw;
   max-height: 5vh;
 }
-#playerNameInput:focus {
+.player-name-input:focus {
   outline: none;
   border: var(--osrs-yellow) 2px solid;
 }
 
 @media screen and (max-width: 360px) {
-  #navbar a {
+  .navbar a {
     font-size: 4vw;
   }
 
@@ -213,13 +213,13 @@ h3 {
   }
 
   .hiscoreText,
-  .catFactText {
+  .cat-fact-text {
     font-size: 3.5vw;
   }
 
-  #searchButton,
-  #searchAgainButton,
-  #moreCatFact {
+  .search-button,
+  .search-again-button,
+  .more-cat-fact {
     font-size: 4vw;
   }
 }

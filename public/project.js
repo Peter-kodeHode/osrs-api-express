@@ -60,7 +60,7 @@ function fetchHiscore(playerName) {
         skillName: SKILL_NAMES[index] || `Unknown Skills${index}`,
       }));
 
-      const highscoreContainer = document.getElementById("highscoreContainer");
+      const highscoreContainer = document.querySelector(".highscore-container");
       highscoreContainer.innerHTML = "";
 
       const skillsContainer = document.createElement("div");
@@ -114,14 +114,14 @@ function fetchHiscore(playerName) {
 }
 
 function showLoading(show) {
-  const loadingMessage = document.getElementById("loadingMessage");
+  const loadingMessage = document.querySelector(".loading-message");
   loadingMessage.style.display = show ? "block" : "none";
 }
 
 function showResults(show) {
-  const inputContainer = document.getElementById("inputContainer");
-  const highscoreContainer = document.getElementById("highscoreContainer");
-  const catfactContainer = document.getElementById("catfactContainer");
+  const inputContainer = document.querySelector(".input-container");
+  const highscoreContainer = document.querySelector(".highscore-container");
+  const catfactContainer = document.querySelector(".catfact-container");
   if (show) {
     inputContainer.style.display = "none";
     highscoreContainer.style.display = "block";
@@ -134,11 +134,11 @@ function showResults(show) {
 }
 
 function showError(message) {
-  let errorElement = document.getElementById("errorMessage");
+  let errorElement = document.querySelector(".error-message");
   if (!errorElement) {
     errorElement = document.createElement("p");
-    errorElement.id = "errorMessage";
-    const searchForm = document.getElementById("searchForm");
+    errorElement.className = "error-message";
+    const searchForm = document.querySelector(".search-form");
     searchForm.appendChild(errorElement);
   }
   errorElement.textContent = message;
@@ -146,10 +146,10 @@ function showError(message) {
 }
 
 function handleSearch() {
-  const playerNameInput = document.getElementById("playerNameInput");
+  const playerNameInput = document.querySelector(".player-name-input");
   const playerName = playerNameInput.value.trim();
 
-  const existingError = document.getElementById("errorMessage");
+  const existingError = document.querySelector(".error-message");
   if (existingError) {
     existingError.style.display = "none";
   }
@@ -188,7 +188,7 @@ function fetchCatFact() {
       console.log(data);
       showLoading(false);
 
-      const catFactText = document.querySelector(".catFactText");
+      const catFactText = document.querySelector(".cat-fact-text");
       if (catFactText && data) {
         catFactText.innerHTML = `<h3>Cat Fact:</h3> ${
           data.fact || data.text || data
@@ -199,7 +199,7 @@ function fetchCatFact() {
       console.error("Error fetching cat fact:", error);
       showLoading(false);
 
-      const catfactContainer = document.getElementById("catfactContainer");
+      const catfactContainer = document.querySelector(".catfact-container");
       if (catfactContainer) {
         catfactContainer.innerHTML = `<p>Failed to load cat fact: ${error.message}</p>`;
       }
@@ -207,20 +207,20 @@ function fetchCatFact() {
 }
 
 function resetSearch() {
-  const playerNameInput = document.getElementById("playerNameInput");
+  const playerNameInput = document.querySelector(".player-name-input");
   playerNameInput.value = "";
   showResults(false);
 
-  const existingError = document.getElementById("errorMessage");
+  const existingError = document.querySelector(".error-message");
   if (existingError) {
     existingError.remove();
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const searchButton = document.getElementById("searchButton");
-  const playerNameInput = document.getElementById("playerNameInput");
-  const searchAgainButton = document.getElementById("searchAgainButton");
+  const searchButton = document.querySelector(".search-button");
+  const playerNameInput = document.querySelector(".player-name-input");
+  const searchAgainButton = document.querySelector(".search-again-button");
 
   searchButton.addEventListener("click", handleSearch);
   searchAgainButton.addEventListener("click", resetSearch);
@@ -234,7 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
   playerNameInput.focus();
 });
 
-const button = document.getElementById("moreCatFact");
+const button = document.querySelector(".more-cat-fact");
 button.addEventListener("click", async () => {
   fetchCatFact();
 });

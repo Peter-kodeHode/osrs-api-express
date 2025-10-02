@@ -10,7 +10,7 @@
 
 <body>
 
-    <nav id="navbar">
+    <nav class="navbar">
         <ul>
             <li>
                 <a href="#">Home</a>
@@ -23,26 +23,26 @@
             </li>
         </ul>
     </nav>
-    <div id="mainContainer">
-        <div id="inputContainer">
+    <div class="main-container">
+        <div class="input-container">
             <h1>Look up your character</h1>
 
-            <div id="searchForm">
-                <input type="text" id="playerNameInput" placeholder="Enter player name..." maxlength="12">
-                <button id="searchButton">Get Stats</button>
+            <div class="search-form">
+                <input type="text" class="player-name-input"
+                    placeholder="Enter player name...or don't if you don't wanna" maxlength="12">
+                <button class="search-button">Get Stats</button>
             </div>
-            <div id="errorMessage" style="display: none;"></div>
-            <div id="loadingMessage" style="display: none;">Loading...</div>
+            <div class="loading-message" style="display: none;">Loading...</div>
         </div>
 
-        <div id="highscoreContainer" style="display: none;">
-            <p class="highscoreText"></p>
+        <div class="highscore-container" style="display: none;">
+            <p class="highscore-text"></p>
         </div>
 
-        <div id="catfactContainer" style="display:none;">
-            <p class="catFactText"></p>
-            <button id="searchAgainButton">Search Another Player</button>
-            <button id="moreCatFact">ANOTHER CATFACT!!</button>
+        <div class="catfact-container" style="display:none;">
+            <p class="cat-fact-text"></p>
+            <button class="search-again-button">Search Another Player</button>
+            <button class="more-cat-fact">ANOTHER CATFACT!!</button>
         </div>
     </div>
 
