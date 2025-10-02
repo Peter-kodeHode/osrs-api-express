@@ -1,37 +1,129 @@
+@font-face {
+  font-family: "osrs-normal";
+  src: url("/runescape.ttf") format("truetype");
+}
+@font-face {
+  font-family: "osrs-bold";
+  src: url("/runescape_bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "osrs-small";
+  src: url("/runescape_small.ttf") format("truetype");
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+:root {
+  --osrs-yellow: #ffcf3f;
+  --osrs-gold: #e6a519;
+  --osrs-brown: #694d23;
+  --osrs-dark-brown: #382d1a;
+  --osrs-black: #0f0f0f;
+  --osrs-green: #00ff00;
+  --osrs-red: #ff0000;
+  --osrs-blue: #0088ff;
+  --osrs-chat: #00ffff;
+  --osrs-background: #2e2c29;
+  --osrs-border: #474745;
+  --osrs-panel: #46433a;
+}
+
 body {
-  background-color: #694d23;
-  min-height: 100vh;
-  max-width: 100vw;
+  font-family: "osrs-normal", sans-serif;
+  font-size: 16px;
+  background-color: var(--osrs-background);
+}
+
+#mainContainer {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  background-color: var(--osrs-background);
+  padding-top: 3em;
+}
+
+#navbar {
+  width: 100%;
+  background-color: var(--osrs-panel);
+  color: var(--osrs-gold);
+  box-shadow: var(--osrs-black) 2px 2px 2px 2px;
+  text-shadow: var(--osrs-black) 2px 2px 2px;
+  border: var(--osrs-border) 2px solid;
+  padding: 0.5em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  list-style-type: none;
+}
+
+#navbar ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: var(--osrs-gold);
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+a:hover {
+  text-decoration: underline;
+  background-color: var(--osrs-background);
+  padding: 0.5;
+}
+
+a:active {
+  color: var(--osrs-yellow);
 }
 
 #errorMessage {
-  color: red;
+  color: var(--osrs-red);
   font-weight: bold;
   margin: 0.5em;
   font-size: 1.2em;
   text-shadow: black 2px 2px 2px;
 }
 
+#inputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 h1 {
+  background-color: var(--osrs-panel);
   margin-bottom: 1em;
   font-weight: bold;
-  font-size: 5vh;
-  color: white;
-  text-shadow: black 2px 2px 2px;
-  border: solid white 5px;
-  box-shadow: black 2px 2px 2px 2px;
+  font-size: 5vw;
+  color: var(--osrs-gold);
+  text-shadow: var(--osrs-black) 2px 2px 2px;
+  border: solid var(--osrs-border) 5px;
+  box-shadow: var(--osrs-black) 2px 2px 2px 2px;
   padding: 0.5em;
+}
+
+#searchForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #highscoreContainer,
@@ -45,34 +137,89 @@ h1 {
 .catFactText {
   font-weight: bold;
   font-size: 1em;
-  color: white;
-  text-shadow: black 2px 2px 2px;
+  color: var(--osrs-yellow);
+  text-shadow: var(--osrs-black) 2px 2px 2px;
   margin: 0.5em;
+  text-align: center;
 }
 
 h3 {
   padding: 0.5em;
   margin: 0.5em;
   font-size: 1.5em;
-  color: white;
-  background: black;
+  color: var(--osrs-gold);
+  background: var(--osrs-panel);
   font-weight: bold;
+  text-shadow: var(--osrs-black) 2px 2px 2px;
   border-radius: 50px;
+  box-shadow: var(--osrs-black) 2px 2px 2px 2px;
+  border: var(--osrs-border) 2px solid;
+  text-align: center;
 }
 
 #searchButton,
 #searchAgainButton,
 #moreCatFact {
-  margin: 0 0.5em 0 0.5em;
+  margin: 1em;
   padding: 0.5em;
-  font-weight: bold;
+  cursor: pointer;
+
+  font-family: "osrs-bold", sans-serif;
   font-size: 1em;
-  color: black;
-  box-shadow: black 2px 2px 2px 2px;
+  background-color: var(--osrs-panel);
+  color: var(--osrs-yellow);
+  box-shadow: var(--osrs-black) 2px 2px 2px 2px;
+  text-shadow: var(--osrs-black) 2px 2px 2px;
+  border: var(--osrs-border) 2px solid;
+  flex-direction: row;
+}
+
+#searchButton:hover,
+#searchAgainButton:hover,
+#moreCatFact:hover {
+  background-color: var(--osrs-yellow);
+  color: var(--osrs-black);
+  text-shadow: none;
 }
 
 #playerNameInput {
   padding: 1em;
   text-align: center;
-  box-shadow: black 2px 2px 2px 2px;
+  box-shadow: var(--osrs-black) 2px 2px 2px 2px;
+  background-color: var(--osrs-panel);
+  border: var(--osrs-border) 2px solid;
+  color: var(--osrs-yellow);
+  font-family: "osrs-small", sans-serif;
+  font-size: 1.5em;
+  width: 65vw;
+  max-height: 5vh;
+}
+#playerNameInput:focus {
+  outline: none;
+  border: var(--osrs-yellow) 2px solid;
+}
+
+@media screen and (max-width: 360px) {
+  #navbar a {
+    font-size: 4vw;
+  }
+
+  h1 {
+    font-size: 6.5vw;
+  }
+
+  h3 {
+    font-size: 4vw;
+  }
+
+  .hiscoreText,
+  .catFactText {
+    font-size: 3.5vw;
+  }
+
+  #searchButton,
+  #searchAgainButton,
+  #moreCatFact {
+    font-size: 4vw;
+  }
 }

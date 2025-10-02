@@ -10,29 +10,42 @@
 
 <body>
 
+    <nav id="navbar">
+        <ul>
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li>
+                <a href="#">Completion Diary</a>
+            </li>
+            <li>
+                <a href="#">XP Gains</a>
+            </li>
+        </ul>
+    </nav>
+    <div id="mainContainer">
+        <div id="inputContainer">
+            <h1>Look up your character</h1>
 
-    <div id="inputContainer">
-        <h1>Look up your OSRS stats</h1>
-
-        <div id="searchForm">
-            <input type="text" id="playerNameInput" placeholder="Enter player name..." maxlength="12">
-            <button id="searchButton">Get Stats</button>
+            <div id="searchForm">
+                <input type="text" id="playerNameInput" placeholder="Enter player name..." maxlength="12">
+                <button id="searchButton">Get Stats</button>
+            </div>
+            <div id="errorMessage" style="display: none;"></div>
+            <div id="loadingMessage" style="display: none;">Loading...</div>
         </div>
-        <div id="errorMessage" style="display: none;"></div>
-        <div id="loadingMessage" style="display: none;">Loading...</div>
-    </div>
+        <div id="buttonContainer" style="display: none;">
+            <button id="searchAgainButton">Search Another Player</button>
+            <button id="moreCatFact">ANOTHER CATFACT!!</button>
+        </div>
+        <div id="highscoreContainer" style="display: none;">
+            <p class="highscoreText"></p>
+        </div>
 
-    <div id="highscoreContainer" style="display: none;">
-        <p class="highscoreText"></p>
-    </div>
+        <div id="catfactContainer" style="display:none;">
+            <p class="catFactText"></p>
 
-    <div id="catfactContainer" style="display:none;">
-        <p class="catFactText"></p>
-        <button id="searchAgainButton">Search Another Player</button>
-        <button id="moreCatFact">ANOTHER CATFACT!!</button>
-
-
-
+        </div>
     </div>
 
 </body>

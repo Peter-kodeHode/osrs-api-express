@@ -220,10 +220,10 @@ function resetSearch() {
 document.addEventListener("DOMContentLoaded", () => {
   const searchButton = document.getElementById("searchButton");
   const playerNameInput = document.getElementById("playerNameInput");
-  const searchAgainButton = document.getElementById("searchAgainButton"); // Add this line
+  const searchAgainButton = document.getElementById("searchAgainButton");
 
   searchButton.addEventListener("click", handleSearch);
-  searchAgainButton.addEventListener("click", resetSearch); // Add this line
+  searchAgainButton.addEventListener("click", resetSearch);
 
   playerNameInput.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {

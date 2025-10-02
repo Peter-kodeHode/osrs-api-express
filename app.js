@@ -25,7 +25,6 @@ app.get("/hiscores", async (req, res) => {
 
     const response = await fetch(osrsUrl);
 
-    // If OSRS API returns 404, the player doesn't exist
     if (response.status === 404) {
       return res.status(404).json({ error: "Player not found" });
     }
