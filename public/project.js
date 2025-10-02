@@ -63,16 +63,18 @@ function fetchHiscore(playerName) {
       const highscoreContainer = document.querySelector(".highscore-container");
       highscoreContainer.innerHTML = "";
 
-      const skillsContainer = document.createElement("div");
-      skillsContainer.innerHTML = `<h3>Stats for ${data.name}</h3>`;
+      // Create the header separately
+      const headerElement = document.createElement("h3");
+      headerElement.textContent = `Stats for ${data.name}`;
+      highscoreContainer.appendChild(headerElement);
+
+      // Create each skill paragraph directly
       skillsWithNames.forEach((skill, index) => {
         const skillParagraph = document.createElement("p");
         skillParagraph.className = "hiscoreText";
-        skillParagraph.innerHTML = `${skill.skillName}: Level ${skill.level} (Rank: ${skill.rank}), XP: ${skill.xp}`;
-        skillsContainer.appendChild(skillParagraph);
+        skillParagraph.textContent = `${skill.skillName}: Level ${skill.level} (Rank: ${skill.rank}), XP: ${skill.xp}`;
+        highscoreContainer.appendChild(skillParagraph);
       });
-
-      highscoreContainer.appendChild(skillsContainer);
 
       showResults(true);
     })
