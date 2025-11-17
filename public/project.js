@@ -125,15 +125,17 @@ function showLoading(show) {
 }
 
 function showResults(show) {
-  const inputContainer = document.querySelector(".input-container");
+  const mainContainer = document.querySelector(".main-container");
+  const resultContainer = document.querySelector(".result-container");
   const highscoreContainer = document.querySelector(".highscore-container");
   const catFactContainer = document.querySelector(".catfact-container");
   if (show) {
-    inputContainer.style.display = "none";
+    mainContainer.style.display = "none";
+    resultContainer.style.display = "flex";
     highscoreContainer.style.display = "block";
     catFactContainer.style.display = "block";
   } else {
-    inputContainer.style.display = "block";
+    mainContainer.style.display = "flex";
     highscoreContainer.style.display = "none";
     catFactContainer.style.display = "none";
   }
@@ -228,6 +230,7 @@ function resetSearch() {
   const playerNameInput = document.querySelector(".player-name-input");
   playerNameInput.value = "";
   showResults(false);
+  playerNameInput.focus();
 
   const existingError = document.querySelector(".error-message");
   if (existingError) {
@@ -238,7 +241,6 @@ function resetSearch() {
 document.addEventListener("DOMContentLoaded", () => {
   const searchButton = document.querySelector(".search-button");
   const playerNameInput = document.querySelector(".player-name-input");
-  // const searchAgainButton = document.querySelector(".search-again-button");
 
   searchButton.addEventListener("click", handleSearch);
 

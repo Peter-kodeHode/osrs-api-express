@@ -37,18 +37,25 @@ body {
   font-family: "osrs-normal", sans-serif;
   font-size: 16px;
   background-color: var(--osrs-background);
-  display: grid;
-  grid-template-rows: auto 1fr;
-  min-height: 100vh;
   margin: 0;
 }
 
 .main-container {
+  min-height: 100vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
+  text-align: center;
   background-color: var(--osrs-background);
   padding: 1em 0;
+}
+
+.result-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .navbar {
@@ -99,17 +106,8 @@ a:active {
   text-shadow: black 2px 2px 2px;
 }
 
-.input-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 h1 {
   font-family: "osrs-bold", sans-serif;
-  width: 85vw;
-  margin-bottom: 5vh;
   text-align: center;
   font-weight: bold;
   font-size: 5vw;
@@ -117,6 +115,7 @@ h1 {
   text-shadow: var(--osrs-black) 2px 2px 2px;
   border: solid var(--osrs-border) 5px;
   padding: 0.5em;
+  margin: 0 2.5vw 5vh 2.5vw;
 }
 
 .search-form {
@@ -147,6 +146,7 @@ h1 {
 .catfact-container {
   max-width: 50%;
   min-width: 50%;
+  min-height: 100vh;
 }
 
 .hiscoreText,
@@ -200,6 +200,7 @@ h3 {
   box-shadow: var(--osrs-black) 2px 2px 2px 2px;
   text-shadow: var(--osrs-black) 2px 2px 2px;
   border: var(--osrs-border) 2px solid;
+  flex-direction: row;
 }
 
 .search-button:hover,
