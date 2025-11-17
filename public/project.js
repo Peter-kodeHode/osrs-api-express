@@ -63,12 +63,16 @@ function fetchHiscore(playerName) {
       const highscoreContainer = document.querySelector(".highscore-container");
       highscoreContainer.innerHTML = "";
 
-      // Create the header separately
       const headerElement = document.createElement("h3");
       headerElement.textContent = `Stats for ${data.name}`;
       highscoreContainer.appendChild(headerElement);
 
-      // Create each skill paragraph directly
+      const searchAgainButton = document.createElement("button");
+      searchAgainButton.className = "search-again-button";
+      searchAgainButton.textContent = "Search Again";
+      searchAgainButton.addEventListener("click", resetSearch);
+      highscoreContainer.appendChild(searchAgainButton);
+
       skillsWithNames.forEach((skill, index) => {
         const skillParagraph = document.createElement("p");
         skillParagraph.className = "hiscoreText";
@@ -123,15 +127,15 @@ function showLoading(show) {
 function showResults(show) {
   const inputContainer = document.querySelector(".input-container");
   const highscoreContainer = document.querySelector(".highscore-container");
-  const catfactContainer = document.querySelector(".catfact-container");
+  const catFactContainer = document.querySelector(".catfact-container");
   if (show) {
     inputContainer.style.display = "none";
     highscoreContainer.style.display = "block";
-    catfactContainer.style.display = "block";
+    catFactContainer.style.display = "block";
   } else {
     inputContainer.style.display = "block";
     highscoreContainer.style.display = "none";
-    catfactContainer.style.display = "none";
+    catFactContainer.style.display = "none";
   }
 }
 
@@ -190,12 +194,24 @@ function fetchCatFact() {
       console.log(data);
       showLoading(false);
 
-      const catFactText = document.querySelector(".cat-fact-text");
-      if (catFactText && data) {
-        catFactText.innerHTML = `<h3>Cat Fact:</h3> ${
-          data.fact || data.text || data
-        }`;
-      }
+      const catFactContainer = document.querySelector(".catfact-container");
+      catFactContainer.innerHTML = "";
+
+      const catHeader = document.createElement("h3");
+      catHeader.textContent = "Cat Fact:";
+      catFactContainer.appendChild(catHeader);
+
+      const catFactButton = document.createElement("button");
+      catFactButton.className = "more-cat-fact";
+      catFactButton.textContent = "ANOTHER CATFACT!!";
+
+      catFactContainer.appendChild(catFactButton);
+      catFactButton.addEventListener("click", fetchCatFact);
+
+      const catFactText = document.createElement("p");
+      catFactContainer.appendChild(catFactText);
+      catFactText.className = "cat-fact-text";
+      catFactText.textContent = data.fact || data.text || data;
     })
     .catch((error) => {
       console.error("Error fetching cat fact:", error);
@@ -222,10 +238,9 @@ function resetSearch() {
 document.addEventListener("DOMContentLoaded", () => {
   const searchButton = document.querySelector(".search-button");
   const playerNameInput = document.querySelector(".player-name-input");
-  const searchAgainButton = document.querySelector(".search-again-button");
+  // const searchAgainButton = document.querySelector(".search-again-button");
 
   searchButton.addEventListener("click", handleSearch);
-  searchAgainButton.addEventListener("click", resetSearch);
 
   playerNameInput.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
@@ -234,9 +249,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   playerNameInput.focus();
-});
-
-const button = document.querySelector(".more-cat-fact");
-button.addEventListener("click", async () => {
-  fetchCatFact();
 });

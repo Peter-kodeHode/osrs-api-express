@@ -200,7 +200,6 @@ h3 {
   box-shadow: var(--osrs-black) 2px 2px 2px 2px;
   text-shadow: var(--osrs-black) 2px 2px 2px;
   border: var(--osrs-border) 2px solid;
-  flex-direction: row;
 }
 
 .search-button:hover,
