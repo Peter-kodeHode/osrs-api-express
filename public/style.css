@@ -47,7 +47,6 @@ body {
   justify-content: center;
   text-align: center;
   background-color: var(--osrs-background);
-  padding: 1em 0;
 }
 
 .result-container {
@@ -60,11 +59,10 @@ body {
 
 .navbar {
   width: 100%;
-  background-color: var(--osrs-panel);
-  color: var(--osrs-gold);
+  background-color: var(--osrs-dark-brown);
   box-shadow: var(--osrs-black) 2px 2px 2px 2px;
   text-shadow: var(--osrs-black) 2px 2px 2px;
-  border: var(--osrs-border) 2px solid;
+  border-bottom: var(--osrs-gold) 4px solid;
   padding: 0.5em;
   list-style-type: none;
 }
@@ -110,12 +108,13 @@ h1 {
   font-family: "osrs-bold", sans-serif;
   text-align: center;
   font-weight: bold;
-  font-size: 5vw;
   color: var(--osrs-gold);
   text-shadow: var(--osrs-black) 2px 2px 2px;
   border: solid var(--osrs-border) 5px;
+  background-color: var(--osrs-panel);
   padding: 0.5em;
-  margin: 0 2.5vw 5vh 2.5vw;
+  margin: 0 2.5vw 10vh 2.5vw;
+  border-radius: 5px;
 }
 
 .search-form {
@@ -129,9 +128,9 @@ h1 {
   padding: 0.5em;
   text-align: center;
   box-shadow: var(--osrs-black) 2px 2px 2px 2px;
-  background-color: var(--osrs-panel);
+  background-color: var(--osrs-black);
   border: var(--osrs-border) 2px solid;
-  color: var(--osrs-yellow);
+  color: lightgrey;
   font-family: "osrs-small", sans-serif;
   font-size: 1.5em;
   width: 65vw;
@@ -140,19 +139,19 @@ h1 {
 .player-name-input:focus {
   outline: none;
   border: var(--osrs-yellow) 2px solid;
+  color: var(--osrs-yellow);
 }
 
 .highscore-container,
 .catfact-container {
   max-width: 50%;
   min-width: 50%;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .hiscoreText,
 .loading-message,
 .cat-fact-text {
-  font-weight: bold;
   font-size: 1em;
   color: var(--osrs-yellow);
   text-shadow: var(--osrs-black) 2px 2px 2px;
@@ -163,7 +162,6 @@ h1 {
 h3 {
   padding: 0.5em;
   margin: 0.5em;
-  font-size: 1.5em;
   color: var(--osrs-gold);
   background: var(--osrs-panel);
   font-weight: bold;
@@ -173,19 +171,17 @@ h3 {
   text-align: center;
 }
 .search-button {
-  margin: 2em;
+  margin: 1em;
   padding: 0.5em;
   min-width: 25vw;
   cursor: pointer;
-  font-family: "osrs-bold", sans-serif;
-  font-size: 1em;
-  background-color: var(--osrs-background);
-  color: var(--osrs-yellow);
+  font-family: "osrs-normal", sans-serif;
+  font-size: 1.5em;
+  background-color: var(--osrs-gold);
+  color: var(--osrs-black);
   box-shadow: var(--osrs-black) 2px 2px 2px 2px;
-  text-shadow: var(--osrs-black) 2px 2px 2px;
-  border: var(--osrs-border) 2px solid;
+  border: var(--osrs-brown) 4px solid;
   flex-direction: row;
-  border-radius: 25px;
 }
 
 .search-again-button,
@@ -193,12 +189,11 @@ h3 {
   margin: 1em;
   padding: 0.5em;
   cursor: pointer;
-  font-family: "osrs-bold", sans-serif;
+  font-family: "osrs-normal", sans-serif;
   font-size: 1em;
-  background-color: var(--osrs-panel);
-  color: var(--osrs-yellow);
+  background-color: var(--osrs-gold);
+  color: var(--osrs-black);
   box-shadow: var(--osrs-black) 2px 2px 2px 2px;
-  text-shadow: var(--osrs-black) 2px 2px 2px;
   border: var(--osrs-border) 2px solid;
   flex-direction: row;
 }
@@ -207,8 +202,6 @@ h3 {
 .search-again-button:hover,
 .more-cat-fact:hover {
   background-color: var(--osrs-yellow);
-  color: var(--osrs-black);
-  text-shadow: none;
 }
 
 @media screen and (max-width: 360px) {
