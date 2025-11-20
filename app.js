@@ -6,7 +6,7 @@ app.use(express.static("public"));
 
 app.get("/hiscores", async (req, res) => {
   try {
-    const playerName = req.query.player || `WaifuTed`;
+    const playerName = req.query.player;
     if (!playerName || playerName.trim() === "") {
       return res.status(400).json({ error: "Player name is required" });
     }
