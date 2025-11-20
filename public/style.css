@@ -85,7 +85,7 @@ a:hover,
 a:active {
   color: var(--osrs-gold);
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 1.5em;
 }
 
 a:hover {
@@ -102,6 +102,7 @@ h1 {
   font-family: "osrs-bold", sans-serif;
   text-align: center;
   font-weight: bold;
+  font-size: 3em;
   color: var(--osrs-gold);
   text-shadow: var(--osrs-black) 2px 2px 2px;
   border: solid var(--osrs-border) 5px;
@@ -126,7 +127,7 @@ h1 {
   border: var(--osrs-border) 2px solid;
   color: lightgrey;
   font-family: "osrs-small", sans-serif;
-  font-size: 1.5em;
+  font-size: 2em;
   width: 65vw;
   max-height: 5vh;
 }
@@ -171,6 +172,7 @@ h3 {
   border: var(--osrs-border) 2px solid;
   text-align: center;
 }
+
 .search-button {
   margin: 1em;
   padding: 0.5em;
