@@ -26,6 +26,7 @@ const SKILL_NAMES = [
   "Runecraft",
   "Hunter",
   "Construction",
+  "Sailing",
 ];
 
 function fetchHiscore(playerName) {
