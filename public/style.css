@@ -38,10 +38,11 @@ body {
   font-size: 16px;
   background-color: var(--osrs-background);
   margin: 0;
+  height: 100vh;
 }
 
 .main-container {
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -59,6 +60,7 @@ body {
 
 .navbar {
   width: 100%;
+  min-height: 10vh;
   background-color: var(--osrs-dark-brown);
   box-shadow: var(--osrs-black) 2px 2px 2px 2px;
   text-shadow: var(--osrs-black) 2px 2px 2px;
@@ -146,7 +148,7 @@ h1 {
 .catfact-container {
   max-width: 50%;
   min-width: 50%;
-  height: 100vh;
+  min-height: 90vh;
 }
 
 .hiscoreText,
