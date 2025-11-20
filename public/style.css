@@ -59,24 +59,73 @@ body {
 }
 
 .navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   min-height: 10vh;
   background-color: var(--osrs-dark-brown);
   box-shadow: var(--osrs-black) 2px 2px 2px 2px;
   text-shadow: var(--osrs-black) 2px 2px 2px;
   border-bottom: var(--osrs-gold) 4px solid;
-  padding: 0.5em;
+  padding: 1em;
   list-style-type: none;
 }
 
 .navbar ul {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
   margin: 0;
   padding: 0;
   list-style-type: none;
   text-decoration: none;
+}
+
+.nav-links {
+  width: 50vw;
+  justify-content: center;
+}
+
+.nav-links li {
+  margin: 0 2em;
+}
+
+.nav-login {
+  width: 50vw;
+  justify-content: center;
+}
+
+.nav-login input {
+  margin: 0 0.5em;
+  padding: 0.5em;
+  font-family: "osrs-small", sans-serif;
+  font-size: 1em;
+  box-shadow: var(--osrs-black) 2px 2px 2px 2px;
+  background-color: var(--osrs-black);
+  border: var(--osrs-border) 2px solid;
+  color: lightgrey;
+}
+
+.nav-login input:focus {
+  outline: none;
+  border: var(--osrs-yellow) 2px solid;
+  color: var(--osrs-yellow);
+}
+
+.nav-login .login-button {
+  padding: 0.2em 1em;
+  cursor: pointer;
+  font-family: "osrs-normal", sans-serif;
+  font-size: 1em;
+  background-color: var(--osrs-gold);
+  color: var(--osrs-black);
+  box-shadow: var(--osrs-black) 2px 2px 2px 2px;
+  border: var(--osrs-brown) 4px solid;
+}
+
+.login-button:hover {
+  background-color: var(--osrs-yellow);
 }
 
 a:link,
