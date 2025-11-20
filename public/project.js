@@ -231,9 +231,6 @@ function resetSearch() {
   playerNameInput.value = "";
   showResults(false);
   playerNameInput.focus();
-  const homeButton = document.querySelector(".home-button");
-
-  homeButton.addEventListener("click", resetSearch);
 
   const existingError = document.querySelector(".error-message");
   if (existingError) {
@@ -255,3 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   playerNameInput.focus();
 });
+
+const homeButton = document.querySelector(".home-button");
+
+homeButton.addEventListener("click", resetSearch);
