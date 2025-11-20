@@ -98,14 +98,6 @@ a:active {
   color: var(--osrs-yellow);
 }
 
-.error-message {
-  color: var(--osrs-red);
-  font-weight: bold;
-  margin: 0.5em;
-  font-size: 1.2em;
-  text-shadow: black 2px 2px 2px;
-}
-
 h1 {
   font-family: "osrs-bold", sans-serif;
   text-align: center;
@@ -144,6 +136,13 @@ h1 {
   color: var(--osrs-yellow);
 }
 
+.error-message {
+  color: var(--osrs-red);
+  font-weight: bold;
+  margin: 0.5em;
+  font-size: 1.2em;
+  text-shadow: black 2px 2px 2px;
+}
 .highscore-container,
 .catfact-container {
   max-width: 50%;
