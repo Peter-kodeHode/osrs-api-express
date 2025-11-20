@@ -207,6 +207,22 @@ h3 {
   background-color: var(--osrs-yellow);
 }
 
+.search-button,
+.login-button,
+.search-again-button,
+.more-cat-fact {
+  transition: transform ease-in-out 0.1s;
+}
+
+.search-button,
+.login-button,
+.search-again-button,
+.more-cat-fact {
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
 @media screen and (max-width: 360px) {
   .navbar a {
     font-size: 4vw;
