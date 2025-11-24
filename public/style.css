@@ -50,14 +50,6 @@ body {
   background-color: var(--osrs-background);
 }
 
-.result-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
 .navbar {
   display: flex;
   flex-direction: row;
@@ -193,16 +185,41 @@ h1 {
   font-size: 1.2em;
   text-shadow: black 2px 2px 2px;
 }
+
+.result-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 .highscore-container,
-.catfact-container {
+.temple-container {
+  display: block;
   max-width: 50%;
   min-width: 50%;
   min-height: 90vh;
 }
 
-.hiscoreText,
-.loading-message,
+.catfact-container {
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 .cat-fact-text {
+  font-size: 1.5em;
+  color: var(--osrs-yellow);
+  text-shadow: var(--osrs-black) 2px 2px 2px;
+  margin: 0.5em;
+  text-align: center;
+}
+
+.hiscoreText,
+.loading-message {
   font-size: 1em;
   color: var(--osrs-yellow);
   text-shadow: var(--osrs-black) 2px 2px 2px;
@@ -239,6 +256,7 @@ h3 {
 .search-again-button,
 .more-cat-fact {
   margin: 1em;
+  min-width: 15vw;
   padding: 0.5em;
   cursor: pointer;
   font-family: "osrs-normal", sans-serif;

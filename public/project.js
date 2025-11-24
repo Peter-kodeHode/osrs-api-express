@@ -62,17 +62,10 @@ function fetchHiscore(playerName) {
       }));
 
       const highscoreContainer = document.querySelector(".highscore-container");
-      highscoreContainer.innerHTML = "";
 
       const headerElement = document.createElement("h3");
       headerElement.textContent = `Stats for ${data.name}`;
       highscoreContainer.appendChild(headerElement);
-
-      const searchAgainButton = document.createElement("button");
-      searchAgainButton.className = "search-again-button";
-      searchAgainButton.textContent = "Search Again";
-      searchAgainButton.addEventListener("click", resetSearch);
-      highscoreContainer.appendChild(searchAgainButton);
 
       skillsWithNames.forEach((skill, index) => {
         const skillParagraph = document.createElement("p");
@@ -80,6 +73,12 @@ function fetchHiscore(playerName) {
         skillParagraph.textContent = `${skill.skillName}: Level ${skill.level} (Rank: ${skill.rank}), XP: ${skill.xp}`;
         highscoreContainer.appendChild(skillParagraph);
       });
+
+      const searchAgainButton = document.createElement("button");
+      searchAgainButton.className = "search-again-button";
+      searchAgainButton.textContent = "Search Again";
+      searchAgainButton.addEventListener("click", resetSearch);
+      highscoreContainer.appendChild(searchAgainButton);
 
       showResults(true);
     })
@@ -129,15 +128,18 @@ function showResults(show) {
   const mainContainer = document.querySelector(".main-container");
   const resultContainer = document.querySelector(".result-container");
   const highscoreContainer = document.querySelector(".highscore-container");
+  const templeContainer = document.querySelector(".temple-container");
   const catFactContainer = document.querySelector(".catfact-container");
+
   if (show) {
     mainContainer.style.display = "none";
     resultContainer.style.display = "flex";
-    highscoreContainer.style.display = "block";
-    catFactContainer.style.display = "block";
+    // templeContainer.style.display = "block";
+    // highscoreContainer.style.display = "block";
+    catFactContainer.style.display = "flex";
   } else {
     mainContainer.style.display = "flex";
-    highscoreContainer.style.display = "none";
+    resultContainer.style.display = "none";
     catFactContainer.style.display = "none";
   }
 }
@@ -204,17 +206,17 @@ function fetchCatFact() {
       catHeader.textContent = "Cat Fact:";
       catFactContainer.appendChild(catHeader);
 
+      const catFactText = document.createElement("p");
+      catFactContainer.appendChild(catFactText);
+      catFactText.className = "cat-fact-text";
+      catFactText.textContent = data.fact || data.text || data;
+
       const catFactButton = document.createElement("button");
       catFactButton.className = "more-cat-fact";
       catFactButton.textContent = "ANOTHER CATFACT!!";
 
       catFactContainer.appendChild(catFactButton);
       catFactButton.addEventListener("click", fetchCatFact);
-
-      const catFactText = document.createElement("p");
-      catFactContainer.appendChild(catFactText);
-      catFactText.className = "cat-fact-text";
-      catFactText.textContent = data.fact || data.text || data;
     })
     .catch((error) => {
       console.error("Error fetching cat fact:", error);

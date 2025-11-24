@@ -41,6 +41,32 @@ app.get("/hiscores", async (req, res) => {
   }
 });
 
+app.get("/templeosrs", async (req, res) => {
+  try {
+    const playerName = req.query.player;
+    if (!playerName || playerName.trim() === "") {
+      return res.status(400).json({ error: "Player name is required" });
+    }
+
+    const templeUrl = `https://templeosrs.com/api/player_info.php?player=${encodeURIComponent(
+      playerName
+    )}`;
+
+    const response = await fetch(templeUrl);
+    if (response.status === 404) {
+      return res.status(404).json({ error: "Player not found" });
+    }
+    if (!response.ok) {
+      throw new Error(`Temple OSRS API returned status: ${response.status}`);
+    }
+    const templeData = await response.json();
+    res.json(templeData);
+  } catch (error) {
+    console.error("Error fetching Temple OSRS data", error);
+    res.status(500).json({ error: "Could not get Temple OSRS data" });
+  }
+});
+
 app.get("/catfacts", async (req, res) => {
   try {
     const catUrl = `https://catfact.ninja/fact`;
