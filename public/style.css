@@ -68,24 +68,22 @@ body {
 .navbar ul {
   display: flex;
   flex-direction: row;
-  margin: 0;
+  margin: 0 2em 0 2em;
   padding: 0;
   list-style-type: none;
   text-decoration: none;
 }
 
 .nav-links {
-  width: 50vw;
   justify-content: center;
 }
 
 .nav-links li {
-  margin: 0 2em;
+  margin: 0 6em;
 }
 
-.nav-login {
-  width: 50vw;
-  justify-content: center;
+.nav-login button {
+  margin: 0 0.5em;
 }
 
 .nav-login input {
@@ -105,7 +103,8 @@ body {
   color: var(--osrs-yellow);
 }
 
-.nav-login .login-button {
+.nav-login .login-button,
+.register-button {
   padding: 0.2em 1em;
   cursor: pointer;
   font-family: "osrs-normal", sans-serif;
@@ -114,10 +113,6 @@ body {
   color: var(--osrs-black);
   box-shadow: var(--osrs-black) 2px 2px 2px 2px;
   border: var(--osrs-brown) 4px solid;
-}
-
-.login-button:hover {
-  background-color: var(--osrs-yellow);
 }
 
 a:link,
@@ -270,12 +265,15 @@ h3 {
 
 .search-button:hover,
 .search-again-button:hover,
-.more-cat-fact:hover {
+.more-cat-fact:hover,
+.login-button:hover,
+.register-button:hover {
   background-color: var(--osrs-yellow);
 }
 
 .search-button,
 .login-button,
+.register-button,
 .search-again-button,
 .more-cat-fact {
   transition: transform ease-in-out 0.1s;
@@ -283,6 +281,7 @@ h3 {
 
 .search-button,
 .login-button,
+.register-button,
 .search-again-button,
 .more-cat-fact {
   &:active {
