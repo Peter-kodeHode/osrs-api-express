@@ -186,6 +186,27 @@ function handleSearch() {
   fetchCatFact();
 }
 
+function fetchTempleData(playerName) {
+  showLoading(true);
+  fetch(`${API_URL}/templeosrs?player=${encodeURIComponent(playerName)}`)
+    .then((response) => {
+      showLoading(false);
+      if (response.status === 404) {
+        throw new Error("PLAYER_NOT_FOUND");
+      }
+      console.log;
+      if (!response.ok) {
+        throw new Error(`HTTP_ERROR_${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {})
+    .catch((error) => {
+      console.error("Error fetching Temple OSRS data:", error);
+      showLoading(false);
+    });
+}
+
 function fetchCatFact() {
   showLoading(true);
   fetch(`${API_URL}/catfacts`)
