@@ -184,6 +184,7 @@ function handleSearch() {
 
   fetchHiscore(playerName);
   fetchCatFact();
+  fetchTempleData(playerName);
 }
 
 function fetchTempleData(playerName) {
@@ -200,7 +201,10 @@ function fetchTempleData(playerName) {
       }
       return response.json();
     })
-    .then((data) => {})
+    .then((data) => {
+      console.log(data);
+      showLoading(false);
+    })
     .catch((error) => {
       console.error("Error fetching Temple OSRS data:", error);
       showLoading(false);

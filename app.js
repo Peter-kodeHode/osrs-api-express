@@ -48,9 +48,15 @@ app.get("/templeosrs", async (req, res) => {
       return res.status(400).json({ error: "Player name is required" });
     }
 
-    const templeUrl = `https://templeosrs.com/api/player_info.php?player=${encodeURIComponent(
+    // const templeUrl = `https://templeosrs.com/api/player_info.php?player=${encodeURIComponent(
+    //   playerName
+    // )}`;
+
+    const templeUrl = `https://templeosrs.com/api/collection-log/player_collection_log.php?player=${encodeURIComponent(
       playerName
-    )}`;
+    )}&categories=all&includenames=1`;
+
+    //Her var jeg sist jeg jobbet med det
 
     const response = await fetch(templeUrl);
     if (response.status === 404) {
