@@ -134,8 +134,8 @@ function showResults(show) {
   if (show) {
     mainContainer.style.display = "none";
     resultContainer.style.display = "flex";
-    // templeContainer.style.display = "block";
-    // highscoreContainer.style.display = "block";
+    templeContainer.style.display = "flex";
+    highscoreContainer.style.display = "flex";
     catFactContainer.style.display = "flex";
   } else {
     mainContainer.style.display = "flex";
