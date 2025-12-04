@@ -195,14 +195,21 @@ function fetchTempleData(playerName) {
       if (response.status === 404) {
         throw new Error("PLAYER_NOT_FOUND");
       }
-      console.log;
+      if (response.status === 400) {
+        throw new Error("INVALID_PLAYER_NAME");
+      }
       if (!response.ok) {
         throw new Error(`HTTP_ERROR_${response.status}`);
       }
       return response.json();
     })
     .then((data) => {
-      console.log(data);
+      console.log(data.data);
+
+      const templeContainer = document.querySelector(".temple-container");
+      const headerElement = document.createElement("h3");
+      headerElement.textContent = `Temple OSRS Collection Log for ${data.data.player_name}`;
+      templeContainer.appendChild(headerElement);
       showLoading(false);
     })
     .catch((error) => {
