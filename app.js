@@ -52,11 +52,13 @@ app.get("/templeosrs", async (req, res) => {
     //   playerName
     // )}`;
 
-    const templeUrl = `https://templeosrs.com/api/collection-log/player_collection_log.php?player=${encodeURIComponent(
-      playerName
-    )}&categories=all&includenames=1`;
+    // const templeUrl = `https://templeosrs.com/api/collection-log/player_collection_log.php?player=${encodeURIComponent(
+    //   playerName
+    // )}&categories=all&includenames=1`;
 
-    //Her var jeg sist jeg jobbet med det
+    const templeUrl = `https://templeosrs.com/api/player_gains.php?player=${encodeURIComponent(
+      playerName
+    )}&time=month`;
 
     const response = await fetch(templeUrl);
     if (response.status === 404) {

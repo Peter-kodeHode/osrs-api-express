@@ -119,6 +119,51 @@ function fetchHiscore(playerName) {
     });
 }
 
+function fetchTempleData(playerName) {
+  showLoading(true);
+  fetch(`${API_URL}/templeosrs?player=${encodeURIComponent(playerName)}`)
+    .then((response) => {
+      showLoading(false);
+      if (response.status === 404) {
+        throw new Error("PLAYER_NOT_FOUND");
+      }
+      if (response.status === 400) {
+        throw new Error("INVALID_PLAYER_NAME");
+      }
+      if (!response.ok) {
+        throw new Error(`HTTP_ERROR_${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const templeData = data.data;
+      const templeContainer = document.querySelector(".temple-container");
+      templeContainer.innerHTML = "";
+
+      const headerElement = document.createElement("h3");
+      headerElement.textContent = `Last month's XP gains for ${templeData.Player}`;
+      templeContainer.appendChild(headerElement);
+
+      const filteredGains = Object.entries(templeData).filter(([key]) =>
+        SKILL_NAMES.includes(key)
+      );
+
+      filteredGains.forEach(([skill, xp]) => {
+        if (xp > 0) {
+          const skillElement = document.createElement("p");
+          skillElement.textContent = `${skill}: ${xp.toLocaleString()}`;
+          templeContainer.appendChild(skillElement);
+        }
+      });
+
+      showLoading(false);
+    })
+    .catch((error) => {
+      console.error("Error fetching Temple OSRS data:", error);
+      showLoading(false);
+    });
+}
+
 function showLoading(show) {
   const loadingMessage = document.querySelector(".loading-message");
   loadingMessage.style.display = show ? "block" : "none";
@@ -187,37 +232,6 @@ function handleSearch() {
   fetchTempleData(playerName);
 }
 
-function fetchTempleData(playerName) {
-  showLoading(true);
-  fetch(`${API_URL}/templeosrs?player=${encodeURIComponent(playerName)}`)
-    .then((response) => {
-      showLoading(false);
-      if (response.status === 404) {
-        throw new Error("PLAYER_NOT_FOUND");
-      }
-      if (response.status === 400) {
-        throw new Error("INVALID_PLAYER_NAME");
-      }
-      if (!response.ok) {
-        throw new Error(`HTTP_ERROR_${response.status}`);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data.data);
-
-      const templeContainer = document.querySelector(".temple-container");
-      const headerElement = document.createElement("h3");
-      headerElement.textContent = `Temple OSRS Collection Log for ${data.data.player_name}`;
-      templeContainer.appendChild(headerElement);
-      showLoading(false);
-    })
-    .catch((error) => {
-      console.error("Error fetching Temple OSRS data:", error);
-      showLoading(false);
-    });
-}
-
 function fetchCatFact() {
   showLoading(true);
   fetch(`${API_URL}/catfacts`)
@@ -228,7 +242,6 @@ function fetchCatFact() {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
       showLoading(false);
 
       const catFactContainer = document.querySelector(".catfact-container");
