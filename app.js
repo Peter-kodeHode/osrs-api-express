@@ -59,6 +59,8 @@ app.get("/templeosrs", async (req, res) => {
     const templeUrl = `https://templeosrs.com/api/player_gains.php?player=${encodeURIComponent(
       playerName
     )}&time=month`;
+    //Sailing does not work on monthly gains for now. Weekly works.
+    //Add sailing xp from official highscore as a temporary fix
 
     const response = await fetch(templeUrl);
     if (response.status === 404) {

@@ -181,6 +181,28 @@ h1 {
   color: var(--osrs-yellow);
 }
 
+.search-button {
+  margin: 1em;
+  padding: 0.5em;
+  min-width: 25vw;
+  cursor: pointer;
+  font-family: "osrs-normal", sans-serif;
+  font-size: 1.5em;
+  background-color: var(--osrs-gold);
+  color: var(--osrs-black);
+  box-shadow: var(--osrs-black) 2px 2px 2px 2px;
+  border: var(--osrs-brown) 4px solid;
+  flex-direction: row;
+}
+
+.loading-message {
+  font-size: 1.5em;
+  color: var(--osrs-green);
+  text-shadow: var(--osrs-black) 2px 2px 2px;
+  margin: 0.5em;
+  text-align: center;
+}
+
 .error-message {
   color: var(--osrs-red);
   font-weight: bold;
@@ -203,39 +225,6 @@ h1 {
   min-height: 90vh;
 }
 
-.catfact-container {
-  width: 100%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.cat-fact-text {
-  font-size: 1.5em;
-  color: var(--osrs-yellow);
-  text-shadow: var(--osrs-black) 2px 2px 2px;
-  margin: 0.5em;
-  text-align: center;
-}
-
-.hiscoreText {
-  font-size: 1em;
-  color: var(--osrs-yellow);
-  text-shadow: var(--osrs-black) 2px 2px 2px;
-  margin: 0.5em;
-  text-align: center;
-  background-color: var(--osrs-panel);
-}
-
-.loading-message {
-  font-size: 1.5em;
-  color: var(--osrs-green);
-  text-shadow: var(--osrs-black) 2px 2px 2px;
-  margin: 0.5em;
-  text-align: center;
-}
-
 h3 {
   padding: 0.5em;
   margin: 0.5em;
@@ -248,18 +237,20 @@ h3 {
   text-align: center;
 }
 
-.search-button {
-  margin: 1em;
-  padding: 0.5em;
-  min-width: 25vw;
-  cursor: pointer;
-  font-family: "osrs-normal", sans-serif;
-  font-size: 1.5em;
-  background-color: var(--osrs-gold);
-  color: var(--osrs-black);
-  box-shadow: var(--osrs-black) 2px 2px 2px 2px;
-  border: var(--osrs-brown) 4px solid;
+.hiscore-text,
+.temple-text {
+  font-size: 1em;
+  color: var(--osrs-yellow);
+  text-shadow: var(--osrs-black) 2px 2px 2px;
+  margin: 0.5em;
+  text-align: center;
+  background-color: var(--osrs-panel);
+}
+
+.search-again-container {
+  display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .search-again-button,
@@ -274,7 +265,22 @@ h3 {
   color: var(--osrs-black);
   box-shadow: var(--osrs-black) 2px 2px 2px 2px;
   border: var(--osrs-border) 2px solid;
-  flex-direction: row;
+}
+
+.catfact-container {
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.cat-fact-text {
+  font-size: 1.5em;
+  color: var(--osrs-yellow);
+  text-shadow: var(--osrs-black) 2px 2px 2px;
+  margin: 0.5em;
+  text-align: center;
 }
 
 .search-button:hover,

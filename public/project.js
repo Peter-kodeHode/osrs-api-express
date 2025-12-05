@@ -69,16 +69,10 @@ function fetchHiscore(playerName) {
 
       skillsWithNames.forEach((skill, index) => {
         const skillParagraph = document.createElement("p");
-        skillParagraph.className = "hiscoreText";
+        skillParagraph.className = "hiscore-text";
         skillParagraph.textContent = `${skill.skillName}: Level ${skill.level} (Rank: ${skill.rank}), XP: ${skill.xp}`;
         highscoreContainer.appendChild(skillParagraph);
       });
-
-      const searchAgainButton = document.createElement("button");
-      searchAgainButton.className = "search-again-button";
-      searchAgainButton.textContent = "Search Again";
-      searchAgainButton.addEventListener("click", resetSearch);
-      highscoreContainer.appendChild(searchAgainButton);
 
       showResults(true);
     })
@@ -141,19 +135,25 @@ function fetchTempleData(playerName) {
       templeContainer.innerHTML = "";
 
       const headerElement = document.createElement("h3");
-      headerElement.textContent = `Last month's XP gains for ${templeData.Player}`;
+      headerElement.textContent = `${templeData.Player.toLocaleUpperCase()}'S XP GAINS`;
       templeContainer.appendChild(headerElement);
+
+      const timeperiodElement = document.createElement("p");
+      timeperiodElement.className = "timeperiod-text";
+      timeperiodElement.textContent = `Time Period: ${templeData.Date} to ${
+        new Date().toISOString().split("T")[0]
+      }`;
+      templeContainer.appendChild(timeperiodElement);
 
       const filteredGains = Object.entries(templeData).filter(([key]) =>
         SKILL_NAMES.includes(key)
       );
 
       filteredGains.forEach(([skill, xp]) => {
-        if (xp > 0) {
-          const skillElement = document.createElement("p");
-          skillElement.textContent = `${skill}: ${xp.toLocaleString()}`;
-          templeContainer.appendChild(skillElement);
-        }
+        const skillElement = document.createElement("p");
+        skillElement.className = "temple-text";
+        skillElement.textContent = `${skill}: ${xp.toLocaleString()}`;
+        templeContainer.appendChild(skillElement);
       });
 
       showLoading(false);
@@ -174,7 +174,16 @@ function showResults(show) {
   const resultContainer = document.querySelector(".result-container");
   const highscoreContainer = document.querySelector(".highscore-container");
   const templeContainer = document.querySelector(".temple-container");
+  const searchAgainContainer = document.querySelector(
+    ".search-again-container"
+  );
   const catFactContainer = document.querySelector(".catfact-container");
+
+  const searchAgainButton = document.createElement("button");
+  searchAgainButton.className = "search-again-button";
+  searchAgainButton.textContent = "Search Again";
+  searchAgainButton.addEventListener("click", resetSearch);
+  searchAgainContainer.appendChild(searchAgainButton);
 
   if (show) {
     mainContainer.style.display = "none";
@@ -228,8 +237,8 @@ function handleSearch() {
   }
 
   fetchHiscore(playerName);
-  fetchCatFact();
   fetchTempleData(playerName);
+  fetchCatFact();
 }
 
 function fetchCatFact() {
