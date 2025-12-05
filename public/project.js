@@ -64,7 +64,7 @@ function fetchHiscore(playerName) {
       const highscoreContainer = document.querySelector(".highscore-container");
 
       const headerElement = document.createElement("h3");
-      headerElement.textContent = `Stats for ${data.name}`;
+      headerElement.textContent = `STATS FOR ${data.name.toLocaleUpperCase()}`;
       highscoreContainer.appendChild(headerElement);
 
       skillsWithNames.forEach((skill, index) => {

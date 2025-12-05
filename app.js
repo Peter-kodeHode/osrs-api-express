@@ -48,6 +48,11 @@ app.get("/templeosrs", async (req, res) => {
       return res.status(400).json({ error: "Player name is required" });
     }
 
+    const updateUrl = `https://templeosrs.com/php/add_datapoint.php?player=${encodeURIComponent(
+      playerName
+    )}`;
+    await fetch(updateUrl);
+
     // const templeUrl = `https://templeosrs.com/api/player_info.php?player=${encodeURIComponent(
     //   playerName
     // )}`;

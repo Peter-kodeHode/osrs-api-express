@@ -227,7 +227,7 @@ h1 {
 
 h3 {
   padding: 0.5em;
-  margin: 0.5em;
+  margin: 1em;
   color: var(--osrs-gold);
   background: var(--osrs-panel);
   font-weight: bold;
@@ -235,16 +235,24 @@ h3 {
   box-shadow: var(--osrs-black) 2px 2px 2px 2px;
   border: var(--osrs-border) 2px solid;
   text-align: center;
+  max-width: 25vw;
+  align-self: center;
+  min-width: 25vw;
 }
 
 .hiscore-text,
-.temple-text {
+.temple-text,
+.timeperiod-text {
   font-size: 1em;
   color: var(--osrs-yellow);
   text-shadow: var(--osrs-black) 2px 2px 2px;
   margin: 0.5em;
   text-align: center;
   background-color: var(--osrs-panel);
+  border: var(--osrs-border) 2px solid;
+  align-self: center;
+  min-width: 25vw;
+  max-width: 25vw;
 }
 
 .search-again-container {
