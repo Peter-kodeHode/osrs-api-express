@@ -177,13 +177,10 @@ function showResults(show) {
   const searchAgainContainer = document.querySelector(
     ".search-again-container"
   );
+  const searchAgainButton = document.querySelector(".search-again-button");
   const catFactContainer = document.querySelector(".catfact-container");
 
-  const searchAgainButton = document.createElement("button");
-  searchAgainButton.className = "search-again-button";
-  searchAgainButton.textContent = "Search Again";
   searchAgainButton.addEventListener("click", resetSearch);
-  searchAgainContainer.appendChild(searchAgainButton);
 
   if (show) {
     mainContainer.style.display = "none";
