@@ -191,10 +191,12 @@ function showResults(show) {
     templeContainer.style.display = "flex";
     highscoreContainer.style.display = "flex";
     catFactContainer.style.display = "flex";
+    searchAgainContainer.style.display = "flex";
   } else {
     mainContainer.style.display = "flex";
     resultContainer.style.display = "none";
     catFactContainer.style.display = "none";
+    searchAgainContainer.style.display = "none";
   }
 }
 
