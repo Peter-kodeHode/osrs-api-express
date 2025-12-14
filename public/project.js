@@ -63,6 +63,8 @@ function fetchHiscore(playerName) {
 
       const highscoreContainer = document.querySelector(".highscore-container");
 
+      highscoreContainer.innerHTML = "";
+
       const headerElement = document.createElement("h3");
       headerElement.textContent = `STATS FOR ${data.name.toLocaleUpperCase()}`;
       highscoreContainer.appendChild(headerElement);

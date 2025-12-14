@@ -240,11 +240,13 @@ h3 {
   max-width: 20vw;
   align-self: center;
   min-width: 20vw;
+  box-shadow: var(--osrs-black) 2px 2px 2px 2px;
 }
 
 .hiscore-text,
 .temple-text,
 .timeperiod-text {
+  padding: 0.5em;
   font-size: 1em;
   color: var(--osrs-yellow);
   text-shadow: var(--osrs-black) 2px 2px 2px;
@@ -255,6 +257,7 @@ h3 {
   align-self: center;
   min-width: 25vw;
   max-width: 25vw;
+  box-shadow: var(--osrs-black) 2px 2px 2px 2px;
 }
 
 .search-again-container {
@@ -346,7 +349,7 @@ h3 {
 
 @media screen and (max-width: 1100px) {
   .navbar li {
-    margin: 0 2em;
+    margin: 0 1.5em;
   }
   .nav-login {
     margin: 0;
@@ -365,11 +368,10 @@ h3 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 0;
   }
   .nav-login input {
     padding: 0.3em;
-    margin-top: 0.3em;
+    margin: 0.2em;
   }
   .login-button,
   .register-button {
